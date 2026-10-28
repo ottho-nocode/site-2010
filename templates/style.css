@@ -10,6 +10,13 @@
      fonds pâles #fdfcff #f8f5fe #f5f1fd #f3eefc #f1ecfc #eee8fb #ebe4fa
                  #e3dbf6 #ded3f5 #d8cdf2 #d6cbeb #c9b9ef #c6b8e6 #a796cf
                  #9a88c8 #9a8cc8 #cbbcf0 #f1eaff #6b55a0
+   autres teintes violettes : #b297f5 #8a66e0 #7a55d8 #7650d6 (bouton violet)
+                 #7a4fdc #7a6ab0 #9a8fc0 #8a7cc0 #f3eefd #e3daf7
+                 #2a1660 #120a2a (diaporama)
+   texte gris-violet : #3a3346 #6a6178 #8a80a0
+   ombres : rgba(40,10,90,...) et rgba(60,30,120,...)
+   Vérification : aucune couleur où le bleu dépasse nettement le vert ne doit
+   rester, hormis les boutons Twitter et LinkedIn.
    ACCENT (boutons, étoile, bordures) : #ffb35c #ff8a1e #ff6a00 #f06d00
                  #e05a00 #c45500 #a34400 (orange : à garder ou à remplacer
                  par une couleur complémentaire de la marque)
