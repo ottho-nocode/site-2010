@@ -1,0 +1,101 @@
+<!-- Fausse intro Flash animée, à coller dans #principal à la place du bloc « Plug-in manquant ».
+     Styles : section « Fausse animation Flash » de templates/style.css.
+     Déroulé : préchargement de 0 à 100 %, puis 4 scènes en boucle, avec un éclair blanc entre chaque scène.
+       s1 : le logo tournoie et arrive en zoomant, le nom glisse depuis la gauche, un reflet balaie l'écran.
+       s2 : trois mots arrivent en se resserrant (lettres espacées puis normales).
+       s3 : une bulle s'ouvre et un texte s'y écrit lettre par lettre.
+       s4 : une vraie nouveauté en gros titre, une accroche et un bouton vers une vraie page.
+     En plus : « Passer l'intro » (fige la scène finale), « Son : OFF » (bascule ON/OFF, aucun son),
+     et un faux menu Flash au clic droit.
+     À remplacer : tout ce qui est entre [CROCHETS]. Le logo doit être une version blanche (SVG). -->
+	<div class="diaporama flash" id="flash-anim">
+		<div class="scene prechargement actif">
+			<div class="pc-titre">CHARGEMENT</div>
+			<div class="pc-barre"><div class="pc-rempli" id="pc-rempli"></div></div>
+			<div class="pc-pourcent" id="pc-pourcent">0 %</div>
+		</div>
+		<div class="scene s1"><img src="assets/[logo-blanc].svg" class="anim-logo" alt="" /><div class="anim-nom">[Nom]</div><div class="reflet-lumiere"></div></div>
+		<div class="scene s2"><span>[Mot 1.]</span><span>[Mot 2.]</span><span>[Mot 3.]</span></div>
+		<div class="scene s3"><div class="anim-bulle"><span id="anim-texte"></span><i class="curseur">|</i></div></div>
+		<div class="scene s4"><div class="anim-titre">[Vraie nouveauté]</div><div class="anim-sous">[Disponible maintenant !]</div><a class="bouton-brillant" href="[page].html">Entrer sur le site &raquo;</a></div>
+		<div class="flash-blanc" id="flash-blanc"></div>
+		<span class="son" id="flash-son">Son : OFF</span>
+		<a href="#" class="passer" id="flash-passer">Passer l'intro &raquo;</a>
+		<div class="menu-flash" id="menu-flash">
+			<div class="grise">Zoom avant</div>
+			<div class="grise">Zoom arrière</div>
+			<div>Afficher tout</div>
+			<hr />
+			<div>Qualité &#9656;</div>
+			<div>Imprimer...</div>
+			<hr />
+			<div>Paramètres...</div>
+			<div>Paramètres globaux...</div>
+			<hr />
+			<div>À propos d'Adobe Flash Player 10.1...</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+	// Fausse animation Flash : préchargement, puis 4 scènes en boucle.
+	(function () {
+		var boite = document.getElementById('flash-anim');
+		var scenes = boite.getElementsByClassName('scene');
+		var blanc = document.getElementById('flash-blanc');
+		var menu = document.getElementById('menu-flash');
+		// Durée d'affichage de chaque scène en millisecondes (index 0 = préchargement)
+		var durees = [0, 3600, 3000, 4600, 4200];
+		var minuteur = null, frappe = null, courante = 0;
+
+		function montrer(n) {
+			for (var i = 0; i < scenes.length; i++) scenes[i].className = scenes[i].className.replace(' actif', '');
+			scenes[n].className += ' actif';
+			blanc.className = 'flash-blanc';
+			void blanc.offsetWidth;
+			blanc.className = 'flash-blanc eclair';
+			courante = n;
+			if (n == 3) taper('[Texte de la bulle, en une ou deux phrases.]');
+		}
+		function suivante() {
+			var n = courante == 4 ? 1 : courante + 1;
+			montrer(n);
+			minuteur = setTimeout(suivante, durees[n]);
+		}
+		function taper(texte) {
+			var cible = document.getElementById('anim-texte'), i = 0;
+			clearInterval(frappe);
+			cible.innerHTML = '';
+			frappe = setInterval(function () {
+				cible.innerHTML = texte.substring(0, ++i);
+				if (i >= texte.length) clearInterval(frappe);
+			}, 55);
+		}
+		// Préchargement de 0 à 100 %, par sauts irréguliers comme en 2010
+		var pourcent = 0;
+		var chargement = setInterval(function () {
+			pourcent = Math.min(100, pourcent + Math.ceil(Math.random() * 7));
+			document.getElementById('pc-rempli').style.width = pourcent + '%';
+			document.getElementById('pc-pourcent').innerHTML = pourcent + ' %';
+			if (pourcent >= 100) { clearInterval(chargement); suivante(); }
+		}, 70);
+
+		document.getElementById('flash-passer').onclick = function () {
+			clearInterval(chargement);
+			clearTimeout(minuteur);
+			clearInterval(frappe);
+			montrer(4);
+			this.style.display = 'none';
+			return false;
+		};
+		document.getElementById('flash-son').onclick = function () {
+			this.innerHTML = this.innerHTML == 'Son : OFF' ? 'Son : ON' : 'Son : OFF';
+		};
+		boite.oncontextmenu = function (e) {
+			var r = boite.getBoundingClientRect();
+			menu.style.left = (e.clientX - r.left) + 'px';
+			menu.style.top = Math.min(e.clientY - r.top, 70) + 'px';
+			menu.style.display = 'block';
+			return false;
+		};
+		document.onclick = function () { menu.style.display = 'none'; };
+	})();
+	</script>

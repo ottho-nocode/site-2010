@@ -1,6 +1,6 @@
 # site-2010
 
-Skill Claude Code qui refait un site actuel comme s'il avait été créé en 2010 : largeur fixe, dégradés brillants, faux plug-in Flash, compteur de visiteurs, livre d'or avec smileys, captcha et badges « W3C XHTML 1.0 valide ».
+Skill Claude Code qui refait un site actuel comme s'il avait été créé en 2010 : largeur fixe, dégradés brillants, fausse intro Flash animée, compteur de visiteurs, livre d'or avec smileys, captcha et badges « W3C XHTML 1.0 valide ».
 
 Le skill part du vrai contenu du site (offres, prix, avis clients), construit 5 pages en HTML statique, les vérifie par captures d'écran, puis les met en ligne sur Vercel si tu es d'accord.
 
@@ -60,6 +60,7 @@ site-2010/
     ├── style.css         feuille de style Web 2.0 (palette à remplacer)
     ├── page.html         squelette commenté d'une page
     ├── snippets.html     blocs pour les pages intérieures
+    ├── flash.html        fausse intro Flash animée
     └── assets/           motif de fond, étoile, coche, avatar
 ```
 

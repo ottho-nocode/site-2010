@@ -25,6 +25,7 @@ Travaille dans un dossier vide. S'il ne l'est pas, signale-le et ne mets jamais 
 - `templates/style.css` : feuille de style complète du style Web 2.0. L'en-tête liste les couleurs à remplacer.
 - `templates/page.html` : squelette commenté d'une page d'accueil (bandeau, menu, flash info, deux colonnes, pied).
 - `templates/snippets.html` : blocs pour les pages intérieures (tableau de tarifs, comparatif, étapes, livre d'or, formulaires, chiffres clés).
+- `templates/flash.html` : fausse intro Flash animée pour l'accueil (préchargement, 4 scènes en boucle, « Passer l'intro », faux menu Flash au clic droit).
 - `templates/assets/` : `fond.svg` (motif de fond), `etoile.svg` (étoile « Nouveau ! »), `coche.svg`, `avatar.svg` (silhouette « photo bientôt disponible »).
 
 ## Étape 1 : récupérer le vrai contenu
@@ -55,7 +56,7 @@ Structure de chaque page : voir `templates/page.html`. Colonne principale de 620
 
 ## Étape 4 : les clins d'œil 2010 (au moins 8)
 
-- Faux diaporama Flash : « Plug-in manquant », bouton « Télécharger Flash Player ».
+- Fausse intro Flash animée sur l'accueil (`templates/flash.html`) : barre de chargement de 0 à 100 %, logo qui tournoie, mots qui arrivent en se resserrant, bulle qui s'écrit, vraie nouveauté en gros titre, « Passer l'intro », « Son : OFF » et faux menu Flash au clic droit. Remplis-la avec le vrai contenu : logo en version blanche, trois mots tirés du slogan, une phrase d'accueil dans la bulle, la nouveauté la plus récente du site. Variante plus simple, seulement si l'utilisateur la préfère : le bloc « Plug-in manquant » avec le bouton « Télécharger Flash Player ».
 - Phrase de bienvenue en Comic Sans : « ~ Bienvenue sur le site de ... ! ~ ».
 - Bandeau « Flash info » avec `<marquee>` et « Dernière mise à jour : JJ/MM/2010 ».
 - Compteur de visiteurs (chiffres verts sur fond noir) « depuis le 01/01/2010 ».
@@ -86,9 +87,10 @@ Structure de chaque page : voir `templates/page.html`. Colonne principale de 620
    - Les trois boîtes d'offres n'ont pas la même hauteur : raccourcis la ligne `.infos` pour qu'elle tienne sur une ligne.
    - Colonne principale beaucoup plus courte que la colonne de droite : ajoute une section (« Pourquoi nous choisir ? » avec liste à coches) ou retire un bloc de la colonne.
    - Texte qui se coupe mal dans un tableau (« : » en début de ligne) : insère un `<br />`.
-4. Vérifie qu'aucun lien interne ni aucune image n'est cassé, et qu'aucun tiret long ne reste (`grep -n "[—–]" *.html`).
-5. Vérifie la console du navigateur : aucune erreur.
-6. Montre les captures à l'utilisateur avant de passer à la mise en ligne.
+4. Vérifie chaque scène de l'intro Flash. Les captures arrivent souvent en retard sur la boucle : clique d'abord sur « Passer l'intro » pour l'arrêter, affiche une scène à la main (classe `actif` sur une seule `.scene`), attends 3 secondes, puis capture le bloc `#flash-anim`.
+5. Vérifie qu'aucun lien interne ni aucune image n'est cassé, et qu'aucun tiret long ne reste (`grep -n "[—–]" *.html`).
+6. Vérifie la console du navigateur : aucune erreur.
+7. Montre les captures à l'utilisateur avant de passer à la mise en ligne.
 
 ## Étape 7 : mise en ligne sur Vercel (seulement après accord explicite)
 

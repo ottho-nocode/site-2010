@@ -12,7 +12,7 @@
                  #9a88c8 #9a8cc8 #cbbcf0 #f1eaff #6b55a0
    autres teintes violettes : #b297f5 #8a66e0 #7a55d8 #7650d6 (bouton violet)
                  #7a4fdc #7a6ab0 #9a8fc0 #8a7cc0 #f3eefd #e3daf7
-                 #2a1660 #120a2a (diaporama)
+                 #2a1660 #120a2a #1f0f45 (diaporama et animation Flash)
    texte gris-violet : #3a3346 #6a6178 #8a80a0
    ombres : rgba(40,10,90,...) et rgba(60,30,120,...)
    Vérification : aucune couleur où le bleu dépasse nettement le vert ne doit
@@ -710,3 +710,100 @@ form.contact input.bouton.gris {
 .b80.rss i { color: #fff; background: #f80; }
 .b80.rss b { background: #fff; color: #f60; }
 #pied .fiction { color: #9a8cc8; margin-top: 8px; }
+
+/* ===== Fausse animation Flash (bloc templates/flash.html) ===== */
+.diaporama.flash {
+	overflow: hidden;
+	background: radial-gradient(circle at 50% 40%, #4a2a9c 0%, #1f0f45 70%, #120a2a 100%);
+	font-family: 'Trebuchet MS', Arial, sans-serif;
+	cursor: default;
+}
+.flash .scene { position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: none; text-align: center; }
+.flash .scene.actif { display: block; }
+
+.pc-titre { margin-top: 82px; color: #b99bff; font: bold 11px Verdana, sans-serif; letter-spacing: 5px; }
+.pc-barre { width: 240px; height: 10px; margin: 10px auto 6px auto; padding: 1px; border: 1px solid #a283f0; }
+.pc-rempli { width: 0; height: 100%; background: linear-gradient(to bottom, #b99bff, #6841c6); }
+.pc-pourcent { color: #fff; font: 10px Verdana, sans-serif; }
+
+.anim-logo { width: 104px; height: 104px; margin-top: 26px; filter: drop-shadow(0 0 12px #b99bff); animation: zoomtourne 1.4s ease-out both; }
+.anim-nom { font-family: 'Arial Rounded MT Bold', Arial, sans-serif; font-size: 44px; font-weight: bold; color: #fff; text-shadow: 0 0 15px #a283f0; animation: glisse 0.8s 0.9s ease-out both; }
+.reflet-lumiere {
+	position: absolute;
+	top: 0;
+	left: -160px;
+	width: 120px;
+	height: 100%;
+	background: linear-gradient(105deg, transparent, rgba(255,255,255,0.45), transparent);
+	animation: balayage 1.2s 1.7s ease-in-out both;
+}
+
+.flash .s2 { padding-top: 42px; box-sizing: border-box; }
+.s2 span { display: block; font-size: 30px; font-weight: bold; line-height: 48px; color: #fff; text-shadow: 0 0 10px #6841c6; animation: espacement 0.7s ease-out both; }
+.s2 span:nth-child(2) { color: #b99bff; animation-delay: 0.8s; }
+.s2 span:nth-child(3) { color: #ffd23a; animation-delay: 1.6s; }
+
+.anim-bulle {
+	position: relative;
+	display: inline-block;
+	max-width: 440px;
+	margin-top: 66px;
+	padding: 14px 20px;
+	background: linear-gradient(to bottom, #ffffff, #f1ecfc);
+	border: 2px solid #6841c6;
+	border-radius: 16px;
+	color: #3a3346;
+	font: 17px Verdana, sans-serif;
+	text-align: left;
+	box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+	animation: pop 0.5s ease-out both;
+}
+.anim-bulle:after {
+	content: "";
+	position: absolute;
+	left: 30px;
+	bottom: -14px;
+	border: 7px solid transparent;
+	border-top-color: #6841c6;
+	border-left-color: #6841c6;
+}
+.anim-bulle .curseur { font-style: normal; color: #6841c6; animation: clignote 0.8s steps(1) infinite; }
+
+.anim-titre { margin-top: 44px; font: 48px Impact, 'Arial Black', sans-serif; color: #fff; text-shadow: 0 0 20px #a283f0, 0 3px 0 #2a1466; animation: zoomarriere 0.6s ease-out both; }
+.anim-sous { margin: 4px 0 16px 0; font: italic 17px Georgia, serif; color: #ffd23a; animation: glisse 0.6s 0.5s ease-out both; }
+.flash .s4 .bouton-brillant { animation: apparait 0.5s 1s both; }
+
+.flash-blanc { position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: #fff; opacity: 0; pointer-events: none; }
+.flash-blanc.eclair { animation: eclair 0.35s ease-out; }
+
+.flash .passer { position: absolute; right: 9px; bottom: 6px; z-index: 5; color: #b99bff; font: 10px Verdana, sans-serif; }
+.flash .son { position: absolute; left: 9px; bottom: 6px; z-index: 5; color: #8a7cc0; font: 10px Verdana, sans-serif; cursor: pointer; }
+.flash .son:hover { color: #fff; }
+
+.menu-flash {
+	display: none;
+	position: absolute;
+	z-index: 10;
+	min-width: 200px;
+	padding: 2px 0;
+	background: #f0f0f0;
+	border: 1px solid #979797;
+	box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+	font: 11px Tahoma, Arial, sans-serif;
+	color: #000;
+	text-align: left;
+}
+.menu-flash div { padding: 3px 18px; cursor: default; }
+.menu-flash div:hover { background: #316ac5; color: #fff; }
+.menu-flash div.grise { color: #999; }
+.menu-flash div.grise:hover { background: none; color: #999; }
+.menu-flash hr { margin: 2px 0; border: none; border-top: 1px solid #c5c5c5; }
+
+@keyframes zoomtourne { 0% { transform: scale(0) rotate(-720deg); opacity: 0; } 80% { transform: scale(1.15) rotate(10deg); opacity: 1; } 100% { transform: scale(1) rotate(0); } }
+@keyframes glisse { from { transform: translateX(-420px); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes balayage { from { left: -160px; } to { left: 660px; } }
+@keyframes espacement { from { letter-spacing: 30px; opacity: 0; filter: blur(4px); } to { letter-spacing: 1px; opacity: 1; filter: none; } }
+@keyframes pop { 0% { transform: scale(0); } 70% { transform: scale(1.1); } 100% { transform: scale(1); } }
+@keyframes zoomarriere { from { transform: scale(3); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+@keyframes apparait { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: none; } }
+@keyframes eclair { 0% { opacity: 0.85; } 100% { opacity: 0; } }
