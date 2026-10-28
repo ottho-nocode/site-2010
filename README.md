@@ -10,18 +10,20 @@ Exemples :
 
 ## Installation
 
-Dans Claude Code :
-
-```
-/plugin marketplace add ottho-nocode/site-2010
-/plugin install site-2010@site-2010
-```
-
-Sans le système de plugins, copie le dossier du skill dans tes skills personnels :
+Le dépôt est le skill lui-même : clone-le dans tes skills personnels.
 
 ```bash
-git clone https://github.com/ottho-nocode/site-2010.git
-cp -R site-2010/skills/site-2010 ~/.claude/skills/
+git clone https://github.com/ottho-nocode/site-2010.git ~/.claude/skills/site-2010
+```
+
+Pour un seul projet, clone-le plutôt dans `.claude/skills/site-2010` à la racine du projet.
+
+Redémarre Claude Code : le skill apparaît sous le nom `site-2010`.
+
+Mise à jour :
+
+```bash
+git -C ~/.claude/skills/site-2010 pull
 ```
 
 ## Prérequis
@@ -52,7 +54,7 @@ Compte 20 à 40 minutes. Claude te montre les captures avant toute mise en ligne
 ## Contenu
 
 ```
-skills/site-2010/
+site-2010/
 ├── SKILL.md              méthode en 7 étapes
 └── templates/
     ├── style.css         feuille de style Web 2.0 (palette à remplacer)
