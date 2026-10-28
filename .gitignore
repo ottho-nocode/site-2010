@@ -1,0 +1,5 @@
+.DS_Store
+.env*
+.vercel
+resume.md
+.claude-exchange-counter

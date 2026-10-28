@@ -1,0 +1,118 @@
+<!-- Blocs prêts à l'emploi pour les pages intérieures.
+     Ils utilisent les classes de templates/style.css. À coller dans #principal. -->
+
+<!-- ===== Tableau de tarifs (page Offres) ===== -->
+<h3>&raquo; [Catégorie]</h3>
+<table class="formations">
+	<tr><th width="78">Photo</th><th>Produit</th><th width="120">Infos pratiques</th><th width="70">Tarif</th></tr>
+	<tr id="[ancre]">
+		<td><img src="assets/[clipart].svg" alt="" /></td>
+		<td><b>[Nom de l'offre]</b><br />[Description réelle.]<span class="pourqui">Pour qui : [public].</span></td>
+		<td>[Durée, format]<span class="session">Prochaine date :<br />[JJ/MM]/2010</span></td>
+		<td class="prix">[Vrai prix]</td>
+	</tr>
+	<tr>
+		<td><img src="assets/[clipart].svg" alt="" /></td>
+		<td><b>[Offre gratuite]</b><br />[Description.]</td>
+		<td>[Format]</td>
+		<td><span class="gratuit">GRATUIT !</span></td>
+	</tr>
+</table>
+<p class="note"><i>Tarifs en vigueur au 01/09/2010. Photos non contractuelles.</i></p>
+
+<!-- ===== Tableau comparatif ===== -->
+<table class="formations comparatif">
+	<tr><th width="130"></th><th>[Offre 1]</th><th>[Offre 2]</th><th>[Offre 3]</th></tr>
+	<tr><td class="libelle">[Critère]</td><td>[...]</td><td>[...]</td><td>[...]</td></tr>
+	<tr><td class="libelle">Tarif</td><td class="prix">[...]</td><td class="prix">[...]</td><td class="prix">[...]</td></tr>
+</table>
+
+<!-- ===== Étapes numérotées (page Présentation) ===== -->
+<div class="etape">
+	<div class="numero">01</div>
+	<h3>[Titre de l'étape]</h3>
+	<p>[Une phrase.]</p>
+</div>
+
+<!-- ===== Liste à coches vertes ===== -->
+<ul class="coches">
+	<li><b>[Point fort]</b> : [précision].</li>
+</ul>
+
+<!-- ===== Photo encadrée avec légende (classe "droite" pour la placer à droite, "portrait" pour un carré) ===== -->
+<div class="photo portrait"><img src="assets/avatar.svg" alt="" /><div class="legende">Photo bientôt disponible</div></div>
+
+<!-- ===== Livre d'or : un message par vrai avis ===== -->
+<div class="resume"><b>[N] messages</b> &bull; Note moyenne : <span class="etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <b>[note]/5</b></div>
+<div class="message">
+	<div class="entete"><span class="etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</span>Message n°[N] posté par <b>[Nom tel que publié]</b> le [JJ/MM]/2010 à [HH]h[MM]</div>
+	<div class="texte">« [Texte exact de l'avis] »</div>
+</div>
+<div class="pagination">
+	<span class="courante">1</span> <a href="[URL DES AVIS]">2</a> <a href="[URL DES AVIS]">3</a> <span class="etc">...</span> <a href="[URL DES AVIS]">[dernière]</a> <a href="[URL DES AVIS]">Suivante &raquo;</a>
+</div>
+
+<!-- ===== Formulaire « Signer le livre d'or » (ne rien envoyer) ===== -->
+<h2>Signer le livre d'or</h2>
+<form class="contact" id="formulaire" action="#" method="post">
+	<label for="pseudo">Votre nom ou pseudo * :</label>
+	<input type="text" id="pseudo" name="pseudo" required="required" />
+	<label for="message">Votre message * :</label>
+	<textarea id="message" name="message" required="required"></textarea>
+	<div class="smileys">Insérer un smiley :
+		<span onclick="document.getElementById('message').value += ' :)';">:)</span><span onclick="document.getElementById('message').value += ' ;)';">;)</span><span onclick="document.getElementById('message').value += ' :D';">:D</span><span onclick="document.getElementById('message').value += ' :P';">:P</span>
+	</div>
+	<label for="code">Recopiez le code ci-dessous * :</label>
+	<span class="captcha">x7Kp2</span><input type="text" class="code" id="code" name="code" required="required" />
+	<br />
+	<input type="submit" class="bouton" value="Signer le livre d'or" />
+</form>
+<div class="message-ok" id="ok">Merci pour votre message ! Il sera publié après validation par le webmaster.</div>
+<script type="text/javascript">
+// Démonstration : aucun message n'est envoyé.
+document.getElementById('formulaire').onsubmit = function () {
+	document.getElementById('formulaire').style.display = 'none';
+	document.getElementById('ok').style.display = 'block';
+	return false;
+};
+</script>
+
+<!-- ===== Formulaire de contact (ne rien envoyer, même script que ci-dessus) ===== -->
+<form class="contact" id="formulaire" action="#" method="post">
+	<label for="nom">Nom * :</label>
+	<input type="text" id="nom" name="nom" required="required" />
+	<label for="email">E-mail * :</label>
+	<input type="email" id="email" name="email" required="required" />
+	<label>Vous êtes :</label>
+	<div class="choix">
+		<input type="radio" name="statut" id="s1" checked="checked" /><label for="s1">Particulier</label>
+		<input type="radio" name="statut" id="s2" /><label for="s2">Professionnel</label>
+	</div>
+	<label for="source">Comment nous avez-vous connus ?</label>
+	<select id="source" name="source">
+		<option>Moteur de recherche (Google, Yahoo!, Bing...)</option>
+		<option>Facebook</option>
+		<option>Bouche-à-oreille</option>
+		<option>Annuaire de sites</option>
+		<option>Autre</option>
+	</select>
+	<label for="message">Message * :</label>
+	<textarea id="message" name="message" required="required"></textarea>
+	<label for="code">Recopiez le code ci-dessous * :</label>
+	<span class="captcha">a9Rt4</span><input type="text" class="code" id="code" name="code" required="required" />
+	<p style="margin:10px 0 0 0"><input type="checkbox" class="case" id="lettre" /> <label for="lettre" style="display:inline;font-weight:normal">Je souhaite recevoir la lettre d'information</label></p>
+	<input type="submit" class="bouton" value="Envoyer" /> <input type="reset" class="bouton gris" value="Effacer" />
+	<p class="note" style="margin-top:8px">* Champs obligatoires</p>
+</form>
+
+<!-- ===== Blocs de colonne en plus ===== -->
+<div class="bloc">
+	<div class="titre">[Chiffres clés]</div>
+	<div class="interieur chiffres">
+		<div><b>[nombre réel]</b>[libellé]</div>
+	</div>
+</div>
+<div class="bloc">
+	<div class="titre">[Label ou récompense réelle]</div>
+	<div class="interieur badge"><b>[Label]<small>[précision]</small></b>[Texte en italique]</div>
+</div>

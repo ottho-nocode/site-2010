@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- Titre à l'ancienne : Nom - Activité - Rubrique -->
+<title>[NOM] - [ACTIVITÉ] - Accueil</title>
+<!-- Liste de mots-clés à rallonge, typique de 2010 -->
+<meta name="keywords" content="[mot-clé], [mot-clé], [mot-clé], [ville], [nom]" />
+<meta name="description" content="[Une phrase qui décrit l'activité.]" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="page">
+
+<!-- ===== BANDEAU : logo en pastille, nom, slogan, étoile ou badge à droite ===== -->
+<div id="bandeau">
+	<div class="logo"></div>
+	<h1>[nom]<span class="beta">bêta</span></h1>
+	<div class="slogan">[Slogan ou activité] &bull; [Ville ou promesse]</div>
+	<a class="etoile" href="[URL D'UNE VRAIE OFFRE]">[Mot]<b>[MOT FORT]</b>[mot] !</a>
+</div>
+
+<!-- ===== MENU : 6 rubriques au maximum, class="actif" sur la page en cours ===== -->
+<div id="menu">
+	<ul>
+		<li><a href="index.html" class="actif">Accueil</a></li>
+		<li><a href="offres.html">[Nos offres]</a></li>
+		<li><a href="presentation.html">[Qui sommes-nous]</a></li>
+		<li><a href="livre-dor.html">Livre d'or</a></li>
+		<li><a href="contact.html">Contact</a></li>
+	</ul>
+	<!-- Optionnel : lien vers un vrai espace client -->
+	<a class="membre" href="[URL ESPACE CLIENT]">&#9658; Espace client</a>
+</div>
+
+<!-- ===== FLASH INFO qui défile ===== -->
+<div id="flash">
+	<span class="titre-flash">Flash info</span>
+	<marquee scrollamount="3" onmouseover="this.stop();" onmouseout="this.start();">+++ [Vraie actualité] +++ [Vraie date à venir, passée en 2010] +++ [Vraie offre] +++</marquee>
+	<span class="date">Dernière mise à jour : [JJ/MM]/2010</span>
+</div>
+
+<div id="contenu">
+<div id="principal">
+	<p class="bienvenue">~ Bienvenue sur le site de [NOM] ! ~</p>
+
+	<!-- Faux diaporama Flash -->
+	<div class="diaporama">
+		<div class="plugin">
+			<b>Plug-in manquant</b>
+			La présentation animée nécessite Adobe Flash Player 10.1 ou supérieur.
+			<br /><span>Télécharger Flash Player</span>
+		</div>
+		<div class="chargement">Chargement de la présentation... 0 %</div>
+	</div>
+
+	<h2>Qui sommes-nous ?</h2>
+	<div class="photo"><img src="assets/[clipart].svg" alt="" /><div class="legende">[Légende en italique]</div></div>
+	<p>[Présentation tirée du vrai site, au ton d'une petite entreprise de 2010.]</p>
+	<div class="clear"></div>
+
+	<!-- Trois boîtes d'offres : la dernière porte la classe "derniere" -->
+	<h2>[Nos offres]</h2>
+	<div class="boite">
+		<img src="assets/[clipart].svg" alt="" />
+		<h3>[Offre]</h3>
+		<div class="sous">[Sous-titre]</div>
+		<div class="infos">[Info courte, une seule ligne]</div>
+		<div class="prix">[Vrai prix]</div>
+		<a class="bouton-brillant" href="offres.html">En savoir plus &raquo;</a>
+	</div>
+	<div class="boite">...</div>
+	<div class="boite derniere">...</div>
+	<div class="clear"></div>
+
+	<div class="encadre">
+		<span class="important clignote">NOUVEAU !</span> [Vraie nouveauté.] <a href="[URL]">En savoir plus &raquo;</a>
+	</div>
+
+	<p class="optimise">Site optimisé pour Internet Explorer 7, Mozilla Firefox 3.6 et Safari 4, en résolution 1024 x 768.</p>
+</div><!-- fin principal -->
+
+<!-- ===== COLONNE DE DROITE : piocher 4 à 7 blocs ===== -->
+<div id="colonne">
+	<div class="bloc">
+		<div class="titre">[Actualités / Prochaines dates]</div>
+		<div class="interieur">
+			<ul>
+				<li><b>[JJ/MM]/2010</b><br /><a href="[page]">[Vraie actualité]</a></li>
+			</ul>
+			<p class="droite"><a href="[page]">Toutes les actualités &raquo;</a></p>
+		</div>
+	</div>
+	<div class="bloc">
+		<div class="titre">Livre d'or</div>
+		<div class="interieur">
+			<div class="etoiles">&#9733;&#9733;&#9733;&#9733;&#9733; <b>[note]/5</b></div>
+			<p class="citation">« [Extrait d'un vrai avis] »<br /><span>[Prénom N.]</span></p>
+			<p class="droite"><a href="livre-dor.html">Lire les [N] messages &raquo;</a></p>
+		</div>
+	</div>
+	<div class="bloc">
+		<div class="titre">Lettre d'information</div>
+		<div class="interieur">
+			<form id="newsletter" action="#" method="post">
+				<p>Recevez nos actualités par e-mail :</p>
+				<input type="text" class="champ" value="Votre adresse e-mail" onfocus="if (this.value == 'Votre adresse e-mail') { this.value = ''; this.style.color = '#000'; }" />
+				<input type="submit" class="ok" value="OK" />
+			</form>
+			<div class="message-ok" id="newsletter-ok">Merci ! Votre inscription a bien été prise en compte.</div>
+			<script type="text/javascript">
+			// Démonstration : aucune adresse n'est enregistrée.
+			document.getElementById('newsletter').onsubmit = function () {
+				document.getElementById('newsletter').style.display = 'none';
+				document.getElementById('newsletter-ok').style.display = 'block';
+				return false;
+			};
+			</script>
+		</div>
+	</div>
+	<div class="bloc">
+		<div class="titre">Suivez-nous</div>
+		<div class="interieur">
+			<!-- Uniquement les vrais comptes de la marque -->
+			<a class="reseau twitter" href="[URL]"><i>t</i>Suivez-nous sur Twitter !</a>
+			<a class="reseau youtube" href="[URL]"><i>&#9658;</i>Nos vidéos sur YouTube</a>
+			<a class="reseau linkedin" href="[URL]"><i>in</i>[Nom] sur LinkedIn</a>
+		</div>
+	</div>
+	<div class="bloc">
+		<div class="titre">Nuage de tags</div>
+		<div class="interieur nuage">
+			<!-- Tailles t1 (petit) à t5 (énorme), mélangées -->
+			<a class="t5" href="[page]">[tag]</a> <a class="t2" href="[page]">[tag]</a> <a class="t4" href="[page]">[tag]</a> <a class="t1" href="[page]">web 2.0</a> <a class="t3" href="[page]">[tag]</a>
+		</div>
+	</div>
+	<div class="bloc">
+		<div class="titre">Visiteurs</div>
+		<div class="interieur compteur"><span>0</span><span>1</span><span>8</span><span>6</span><span>4</span><span>2</span> <small>depuis le 01/01/2010</small><div class="en-ligne">3 visiteurs en ligne</div></div>
+	</div>
+</div><!-- fin colonne -->
+</div><!-- fin contenu -->
+
+<!-- ===== PIED DE PAGE : identique sur toutes les pages ===== -->
+<div id="pied">
+	&copy; 2010 [NOM] - [Mention légale réelle : SIRET, adresse...] - <a href="[URL MENTIONS LÉGALES]">Mentions légales</a> - <a href="#" onclick="return false;" title="Appuyez sur Ctrl+D pour ajouter ce site à vos favoris">Ajouter aux favoris</a> - <a href="#" onclick="return false;">Plan du site</a>
+	<div class="badges"><span class="b80"><i>W3C</i><b>XHTML 1.0</b></span> <span class="b80 css"><i>W3C</i><b>CSS valide</b></span> <span class="b80 ff"><i>Firefox</i><b>Get it!</b></span> <span class="b80 rss"><i>RSS</i><b>Fil d'actu</b></span></div>
+	<div class="fiction">Version rétro et parodique du site <a href="[URL DU SITE ACTUEL]">[domaine]</a>, imaginée comme en 2010. Aucun formulaire n'envoie de message.</div>
+</div>
+
+</div><!-- fin page -->
+</body>
+</html>
